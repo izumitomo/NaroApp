@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Border;
 
 class GetBorderCommand extends Command
 {
@@ -86,12 +87,19 @@ class GetBorderCommand extends Command
         var_dump($average_rate);
         var_dump($comment_count);
         
+        //bordersテーブルの全レコードを削除
+        Border::query() ->  delete();
         //得られた値をDBに格納
-        $dbh = new PDO("mysql:charset=UTF8;dbname=naro;host=localhost", "dbuser", "Areyouready7");
-        if ($dbh == null){
-            print('接続に失敗しました。<br>');
-        }else{
-            print('接続に成功しました。<br>');
-        }
+        $border = new Border();
+        
+        $border -> genre = 307;
+        $border -> tensei_or_tenni = 0;
+        $border ->global_point = $global_point;
+        $border -> favorite_count = $favorite_count;
+        $border -> reviewer_count = $reviewer_count;
+        $border -> average_rate = $average_rate;
+        $border -> comment_count = $comment_count;
+        
+        $border -> save();
     }
 }
