@@ -38,8 +38,10 @@ class GetBorderCommand extends Command
      */
     public function handle()
     {
-        $url= 'https://api.syosetu.com/novelapi/api/?lim=100&genre=307&order=weekly&out=json';
-        
+        $genre = 307;
+        $not_isekai = 0;
+        $url= 'https://api.syosetu.com/novelapi/api/?lim=100&genre=' . $genre . '&nottensei=' . $not_isekai . '&nottenni=' . $not_isekai . '&order=weekly&out=json';
+        var_dump($url);
         // ストリームコンテキストのオプションを作成
         $options = array(
             // HTTPコンテキストオプションをセット

@@ -17,4 +17,8 @@ class Border extends Model
     //タイムスタンプ無効化
     public $timestamps = false;
     
+    public function setBorder () 
+    {
+        
+    }
 }
