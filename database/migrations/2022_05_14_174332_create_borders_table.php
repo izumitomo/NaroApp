@@ -21,6 +21,7 @@ class CreateBordersTable extends Migration
             $table->integer('reviewer_count');
             $table->float('average_rate', 4, 2);
             $table->integer('comment_count');
+            //$table->float('length_per_point', 7, 3);
         });
     }
 
