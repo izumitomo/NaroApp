@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageColumnToBordersTable extends Migration
+class AddMaxColumnsToBordersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,11 @@ class AddImageColumnToBordersTable extends Migration
     public function up()
     {
         Schema::table('borders', function (Blueprint $table) {
-            $table -> float("length_per_point", 7, 3);
+            $table -> integer("max_global_point");
+            $table -> integer("max_favorite_count");
+            $table -> integer("max_reviewer_count");
+            $table -> float("max_average_rate", 4, 2);
+            $table -> integer("max_comment_count");
         });
     }
 
