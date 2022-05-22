@@ -93,6 +93,8 @@ class Border extends Model
             $comment_count += $data["impression_cnt"];
             $length += $data["length"];
         }
+        
+        
         // global_pointの計算より前に置く。厳密な平均ではない。
         $length_per_point = round($length / $global_point, 3);
         //int型にキャスト
