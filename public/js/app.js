@@ -93356,15 +93356,15 @@ function Home() {
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(''),
       _React$useState2 = _slicedToArray(_React$useState, 2),
       genre = _React$useState2[0],
-      setgenre = _React$useState2[1];
+      setGenre = _React$useState2[1];
 
   var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false),
       _React$useState4 = _slicedToArray(_React$useState3, 2),
       open = _React$useState4[0],
       setOpen = _React$useState4[1];
 
-  var handleChange = function handleChange(event) {
-    setgenre(event.target.value);
+  var genreSelect = function genreSelect(event) {
+    setGenre(event.target.value);
   };
 
   var handleClose = function handleClose() {
@@ -93373,6 +93373,15 @@ function Home() {
 
   var handleOpen = function handleOpen() {
     setOpen(true);
+  };
+
+  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false),
+      _React$useState6 = _slicedToArray(_React$useState5, 2),
+      checked = _React$useState6[0],
+      setChecked = _React$useState6[1];
+
+  var checkBoxChange = function checkBoxChange(event) {
+    setChecked(event.target.checked);
   };
 
   var title = "なろーせんとーりょく！";
@@ -93390,8 +93399,8 @@ function Home() {
     open: open,
     onClose: handleClose,
     onOpen: handleOpen,
-    value: genre,
-    onChange: handleChange
+    value: genre //onChange={handleChange}
+
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_5__["default"], {
     value: 101
   }, "\u7570\u4E16\u754C(\u604B\u611B)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -93443,9 +93452,9 @@ function Home() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10__["default"], {
     value: "end",
     control: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      color: "secondary",
-      onChange: handleChange
-    }),
+      color: "secondary"
+    }) //onChange={handleChange}/>}
+    ,
     label: "\u7570\u4E16\u754C\u8EE2\u751F\u30FB\u53EC\u559A\u3092\u542B\u3080",
     labelPlacement: "end"
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -93463,10 +93472,10 @@ function Home() {
   }, "search"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Checkboxes, null));
 }
 function Checkboxes() {
-  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(true),
-      _React$useState6 = _slicedToArray(_React$useState5, 2),
-      checked = _React$useState6[0],
-      setChecked = _React$useState6[1];
+  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(true),
+      _React$useState8 = _slicedToArray(_React$useState7, 2),
+      checked = _React$useState8[0],
+      setChecked = _React$useState8[1];
 
   var handleChange = function handleChange(event) {
     setChecked(event.target.checked);
