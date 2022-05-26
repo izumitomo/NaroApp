@@ -12,4 +12,6 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/Home');
+require('./components/App');
+require("./components/Home");
+require("./components/Search");
