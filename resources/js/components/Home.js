@@ -81,7 +81,7 @@ export default function Home() {
               onClose={handleClose}
               onOpen={handleOpen}
               value={genre}
-              onChange={handleChange}
+              //onChange={handleChange}
             >
               <MenuItem value={101}>異世界(恋愛)</MenuItem>
               <MenuItem value={102}>現実世界（恋愛）</MenuItem>
@@ -112,7 +112,7 @@ export default function Home() {
             <FormGroup aria-label="position" row>
               <FormControlLabel
                 value="end"
-                control={<Checkbox color="secondary" onChange={handleChange}/>}
+                control={<Checkbox color="secondary"/>} //onChange={handleChange}/>}
                 label="異世界転生・召喚を含む"
                 labelPlacement="end"
               />
@@ -138,6 +138,7 @@ export default function Home() {
   </div>
   );
 }
+
 
 export function Checkboxes() {
   const [checked, setChecked] = React.useState(true);

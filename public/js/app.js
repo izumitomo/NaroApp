@@ -93399,8 +93399,8 @@ function Home() {
     open: open,
     onClose: handleClose,
     onOpen: handleOpen,
-    value: genre,
-    onChange: handleChange
+    value: genre //onChange={handleChange}
+
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_5__["default"], {
     value: 101
   }, "\u7570\u4E16\u754C(\u604B\u611B)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -93452,9 +93452,9 @@ function Home() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10__["default"], {
     value: "end",
     control: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      color: "secondary",
-      onChange: handleChange
-    }),
+      color: "secondary"
+    }) //onChange={handleChange}/>}
+    ,
     label: "\u7570\u4E16\u754C\u8EE2\u751F\u30FB\u53EC\u559A\u3092\u542B\u3080",
     labelPlacement: "end"
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
