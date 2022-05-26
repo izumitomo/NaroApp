@@ -93356,15 +93356,15 @@ function Home() {
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(''),
       _React$useState2 = _slicedToArray(_React$useState, 2),
       genre = _React$useState2[0],
-      setgenre = _React$useState2[1];
+      setGenre = _React$useState2[1];
 
   var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false),
       _React$useState4 = _slicedToArray(_React$useState3, 2),
       open = _React$useState4[0],
       setOpen = _React$useState4[1];
 
-  var handleChange = function handleChange(event) {
-    setgenre(event.target.value);
+  var genreSelect = function genreSelect(event) {
+    setGenre(event.target.value);
   };
 
   var handleClose = function handleClose() {
@@ -93373,6 +93373,15 @@ function Home() {
 
   var handleOpen = function handleOpen() {
     setOpen(true);
+  };
+
+  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false),
+      _React$useState6 = _slicedToArray(_React$useState5, 2),
+      checked = _React$useState6[0],
+      setChecked = _React$useState6[1];
+
+  var checkBoxChange = function checkBoxChange(event) {
+    setChecked(event.target.checked);
   };
 
   var title = "なろーせんとーりょく！";
@@ -93463,10 +93472,10 @@ function Home() {
   }, "search"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Checkboxes, null));
 }
 function Checkboxes() {
-  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(true),
-      _React$useState6 = _slicedToArray(_React$useState5, 2),
-      checked = _React$useState6[0],
-      setChecked = _React$useState6[1];
+  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(true),
+      _React$useState8 = _slicedToArray(_React$useState7, 2),
+      checked = _React$useState8[0],
+      setChecked = _React$useState8[1];
 
   var handleChange = function handleChange(event) {
     setChecked(event.target.checked);
