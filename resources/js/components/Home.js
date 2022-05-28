@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -13,6 +14,7 @@ import FindInPageIcon from '@material-ui/icons/FindInPage';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
 import { Link } from "react-router-dom";
+import Search from "./Search";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -43,26 +45,45 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Home() {
+export default function Home(){
   const classes = useStyles();
-  const [genre, setGenre] = React.useState('');
   const [open, setOpen] = React.useState(false);
-  const genreSelect = (event) => {
-    setGenre(event.target.value);
-  };
-
   const handleClose = () => {
     setOpen(false);
   };
-
   const handleOpen = () => {
     setOpen(true);
   };
+  const [genre, setGenre] = React.useState('');
+  const genreSelect = (event) => {
+    setGenre(event.target.value);
+  };
+  
   
   const [checked, setChecked] = React.useState(false);
+  const [notIsekai, setNotIsekai] = React.useState(1);
   const checkBoxChange = (event) => {
-    setChecked(event.target.checked);
+    if (checked == false){//checkedはチェックを入れる前の変化前の状態
+      setNotIsekai(0);
+      console.log("false0")
+    }else{
+      setNotIsekai(1);
+      console.log("true0")
+    }
+    setChecked(event.target.checked);//必ず最後に実行される。
   };
+  
+const [isOpen, setIsOpen] = React.useState(false);
+const handleIsOpen = () => {
+  setIsOpen(true)
+}
+
+  
+  
+  let base_url = "https://api.syosetu.com/novelapi/api/?lim=5&order=weekly" + "&genre=" + genre + "&nottensei=" + notIsekai + "&nottenni=" + notIsekai;
+  /*const search = () => {
+    api_url = "https://api.syosetu.com/novelapi/api/?lim=5&genre=" + 9902&nottensei=1&nottenni=1&order=weekly"
+  };*/
   
   
   
@@ -81,7 +102,7 @@ export default function Home() {
               onClose={handleClose}
               onOpen={handleOpen}
               value={genre}
-              //onChange={handleChange}
+              onChange={genreSelect}
             >
               <MenuItem value={101}>異世界(恋愛)</MenuItem>
               <MenuItem value={102}>現実世界（恋愛）</MenuItem>
@@ -112,7 +133,10 @@ export default function Home() {
             <FormGroup aria-label="position" row>
               <FormControlLabel
                 value="end"
-                control={<Checkbox color="secondary"/>} //onChange={handleChange}/>}
+                control={<Checkbox 
+                  color="secondary" 
+                  checked={checked}
+                  onChange={checkBoxChange}/>}
                 label="異世界転生・召喚を含む"
                 labelPlacement="end"
               />
@@ -128,12 +152,23 @@ export default function Home() {
             size="large"
             className={classes.button}
             startIcon={<FindInPageIcon/>}
+            onClick={handleIsOpen}
+            //component={ Link } to={"/search"}
           >
             <b>計測</b>
           </Button>
         </div>
     </div>
     <Link to="/search">search</Link>
+    <p>{ genre }, { checked }</p>
+    <p>{base_url}</p>
+    {isOpen ? (
+      <Search
+        base_url={base_url}//左が渡す名前で右が渡す変数
+      /> 
+    ) : null
+    }
+    
     <Checkboxes/>
   </div>
   );
