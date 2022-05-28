@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -12,8 +13,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FindInPageIcon from '@material-ui/icons/FindInPage';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
-
 import { Link } from "react-router-dom";
+import Search from "./Search";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -44,13 +45,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Home() {
+export default function Home(){
   const classes = useStyles();
-  const [genre, setGenre] = React.useState('');
-  const genreSelect = (event) => {
-    setGenre(event.target.value);
-  };
-
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -58,11 +54,36 @@ export default function Home() {
   const handleOpen = () => {
     setOpen(true);
   };
+  const [genre, setGenre] = React.useState('');
+  const genreSelect = (event) => {
+    setGenre(event.target.value);
+  };
+  
   
   const [checked, setChecked] = React.useState(false);
+  const [notIsekai, setNotIsekai] = React.useState(1);
   const checkBoxChange = (event) => {
-    setChecked(event.target.checked);
+    if (checked == false){//checkedはチェックを入れる前の変化前の状態
+      setNotIsekai(0);
+      console.log("false0")
+    }else{
+      setNotIsekai(1);
+      console.log("true0")
+    }
+    setChecked(event.target.checked);//必ず最後に実行される。
   };
+  
+const [isOpen, setIsOpen] = React.useState(false);
+const handleIsOpen = () => {
+  setIsOpen(true)
+}
+
+  
+  
+  let base_url = "https://api.syosetu.com/novelapi/api/?lim=5&order=weekly" + "&genre=" + genre + "&nottensei=" + notIsekai + "&nottenni=" + notIsekai;
+  /*const search = () => {
+    api_url = "https://api.syosetu.com/novelapi/api/?lim=5&genre=" + 9902&nottensei=1&nottenni=1&order=weekly"
+  };*/
   
   
   
@@ -131,7 +152,8 @@ export default function Home() {
             size="large"
             className={classes.button}
             startIcon={<FindInPageIcon/>}
-            component={ Link } to={"/search"}
+            onClick={handleIsOpen}
+            //component={ Link } to={"/search"}
           >
             <b>計測</b>
           </Button>
@@ -139,6 +161,13 @@ export default function Home() {
     </div>
     <Link to="/search">search</Link>
     <p>{ genre }, { checked }</p>
+    <p>{base_url}</p>
+    {isOpen ? (
+      <Search
+        base_url={base_url}//左が渡す名前で右が渡す変数
+      /> 
+    ) : null
+    }
     
     <Checkboxes/>
   </div>
