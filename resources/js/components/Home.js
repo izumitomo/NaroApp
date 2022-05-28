@@ -12,6 +12,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FindInPageIcon from '@material-ui/icons/FindInPage';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
+
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,15 +47,14 @@ const useStyles = makeStyles((theme) => ({
 export default function Home() {
   const classes = useStyles();
   const [genre, setGenre] = React.useState('');
-  const [open, setOpen] = React.useState(false);
   const genreSelect = (event) => {
     setGenre(event.target.value);
   };
 
+  const [open, setOpen] = React.useState(false);
   const handleClose = () => {
     setOpen(false);
   };
-
   const handleOpen = () => {
     setOpen(true);
   };
@@ -81,7 +81,7 @@ export default function Home() {
               onClose={handleClose}
               onOpen={handleOpen}
               value={genre}
-              //onChange={handleChange}
+              onChange={genreSelect}
             >
               <MenuItem value={101}>異世界(恋愛)</MenuItem>
               <MenuItem value={102}>現実世界（恋愛）</MenuItem>
@@ -112,7 +112,10 @@ export default function Home() {
             <FormGroup aria-label="position" row>
               <FormControlLabel
                 value="end"
-                control={<Checkbox color="secondary"/>} //onChange={handleChange}/>}
+                control={<Checkbox 
+                  color="secondary" 
+                  checked={checked}
+                  onChange={checkBoxChange}/>}
                 label="異世界転生・召喚を含む"
                 labelPlacement="end"
               />
@@ -128,12 +131,15 @@ export default function Home() {
             size="large"
             className={classes.button}
             startIcon={<FindInPageIcon/>}
+            component={ Link } to={"/search"}
           >
             <b>計測</b>
           </Button>
         </div>
     </div>
     <Link to="/search">search</Link>
+    <p>{ genre }, { checked }</p>
+    
     <Checkboxes/>
   </div>
   );
