@@ -93358,14 +93358,14 @@ function Home() {
       genre = _React$useState2[0],
       setGenre = _React$useState2[1];
 
+  var genreSelect = function genreSelect(event) {
+    setGenre(event.target.value);
+  };
+
   var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false),
       _React$useState4 = _slicedToArray(_React$useState3, 2),
       open = _React$useState4[0],
       setOpen = _React$useState4[1];
-
-  var genreSelect = function genreSelect(event) {
-    setGenre(event.target.value);
-  };
 
   var handleClose = function handleClose() {
     setOpen(false);
@@ -93399,8 +93399,8 @@ function Home() {
     open: open,
     onClose: handleClose,
     onOpen: handleOpen,
-    value: genre //onChange={handleChange}
-
+    value: genre,
+    onChange: genreSelect
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_5__["default"], {
     value: 101
   }, "\u7570\u4E16\u754C(\u604B\u611B)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -93452,9 +93452,10 @@ function Home() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10__["default"], {
     value: "end",
     control: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      color: "secondary"
-    }) //onChange={handleChange}/>}
-    ,
+      color: "secondary",
+      checked: checked,
+      onChange: checkBoxChange
+    }),
     label: "\u7570\u4E16\u754C\u8EE2\u751F\u30FB\u53EC\u559A\u3092\u542B\u3080",
     labelPlacement: "end"
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -93466,10 +93467,12 @@ function Home() {
     variant: "contained",
     size: "large",
     className: classes.button,
-    startIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_FindInPage__WEBPACK_IMPORTED_MODULE_11___default.a, null)
+    startIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_FindInPage__WEBPACK_IMPORTED_MODULE_11___default.a, null),
+    component: react_router_dom__WEBPACK_IMPORTED_MODULE_13__["Link"],
+    to: "/search"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "\u8A08\u6E2C")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__["Link"], {
     to: "/search"
-  }, "search"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Checkboxes, null));
+  }, "search"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, genre, ", ", checked), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Checkboxes, null));
 }
 function Checkboxes() {
   var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(true),
