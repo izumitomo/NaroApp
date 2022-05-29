@@ -33,7 +33,7 @@ class Border extends Model
             // HTTPコンテキストオプションをセット
             'http' => array(
                 'method' => 'GET',
-                'header' => 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36',
+                'header' => 'User-Agent: *',
                             //'Content-type: application/json; charset=UTF-8' //JSON形式で表示
             )
         );
