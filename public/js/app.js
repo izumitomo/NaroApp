@@ -93653,6 +93653,8 @@ function Home() {
     setChecked(event.target.checked); //必ず最後に実行される。
   };
 
+  var response;
+
   var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false),
       _useState10 = _slicedToArray(_useState9, 2),
       search = _useState10[0],
@@ -93665,7 +93667,7 @@ function Home() {
       notIsekai: notIsekai
     };
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/search", data).then(function (res) {
-      var response = res.data;
+      response = res.data;
       console.log(response);
     }); //axios.get(base_url, {
     //headers: {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"}}).then(res => console.log(res.data))  
@@ -93761,7 +93763,8 @@ function Home() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, "\u8A08\u6E2C")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, base_url), search ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Search__WEBPACK_IMPORTED_MODULE_14__["default"], {
     base_url: base_url //左が渡す名前で右が渡す変数
     ,
-    search: search
+    search: search,
+    response: response
   }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(FullWidthGrid, null));
 }
 
@@ -93837,11 +93840,12 @@ __webpack_require__.r(__webpack_exports__);
 
 function Search(_ref) {
   var base_url = _ref.base_url,
-      search = _ref.search;
+      search = _ref.search,
+      response = _ref.response;
   return (
     /*#__PURE__*/
     //axios.get(props.base_url)
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, base_url)
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, base_url), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u30B3\u30F3\u30BD\u30FC\u30EB\u306B\u30B5\u30FC\u30D0\u7D4C\u7531\u3067\u53D6\u5F97\u3057\u305FAPI\u306Eresponse\u3092\u8868\u793A\u4E2D"))
   );
 }
 

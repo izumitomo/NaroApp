@@ -79,6 +79,7 @@ export default function Home(){
     setChecked(event.target.checked);//必ず最後に実行される。
   };
   
+  let response
   const [search, setSearch] = useState(false);
   const handleSearch = () => {
     setSearch(true);
@@ -88,7 +89,7 @@ export default function Home(){
     }
     axios.post("/search", data)
     .then(res => {
-      const response = res.data;
+      response = res.data;
       console.log(response)
     }
     );
@@ -175,7 +176,9 @@ export default function Home(){
       <Search
         base_url = {base_url}//左が渡す名前で右が渡す変数
         search = {search}
-      /> 
+        response = {response}
+      />
+      
     ) : null
     }
     
