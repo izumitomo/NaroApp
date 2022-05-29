@@ -196,26 +196,26 @@ export function FullWidthGrid() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={1}>
-        <Grid item xs={1.5} noWrap>
-          <Paper className={classes.paper}>xs=1.5555555555</Paper>
+      <Grid container spacing={3} columns={16}>
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>xs=12</Paper>
         </Grid>
-        <Grid item xs={1.5}>
-          <Paper className={classes.paper}>xs=2.00000000000</Paper>
+        <Grid item xs={12} sm={6}>
+          <Paper className={classes.paper}>xs=12 sm=6</Paper>
         </Grid>
-        <Grid item xs={1}>
-          <Paper className={classes.paper}>xs=1</Paper>
+        <Grid item xs={12} sm={6}>
+          <Paper className={classes.paper}>xs=12 sm=6</Paper>
         </Grid>
-        <Grid item xs={2}>
-          <Paper className={classes.paper}>xs=2</Paper>
-        </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={6} sm={3}>
           <Paper className={classes.paper}>xs=6 sm=3</Paper>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={6} sm={3}>
           <Paper className={classes.paper}>xs=6 sm=3</Paper>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={6} sm={3}>
+          <Paper className={classes.paper}>xs=6 sm=3</Paper>
+        </Grid>
+        <Grid item xs={6} sm={3}>
           <Paper className={classes.paper}>xs=6 sm=3</Paper>
         </Grid>
       </Grid>
