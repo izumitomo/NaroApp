@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::post('/search', "SearchController@call");
+Route::post('/search', "App\Http\Controllers\SearchController@call");
 
 Route::get("/{any}", function(){
     return view('home');

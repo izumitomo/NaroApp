@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Border;
+use App\Models\Border;
 
 class SearchController extends Controller
 {
